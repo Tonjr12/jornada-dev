@@ -59,5 +59,14 @@ Além do treino de memória muscular, os códigos desenvolvidos ficam armazenado
 \---
 
 \*Identidade de mercado: Tom Júnior (Tonjr)\*
+---
+
+## ⌨️ Treino de Digitação Diária (Mecânica)
+
+Para acelerar o ritmo de codificação e evitar erros de sintaxe, mantenho um treino diário de digitação focando em velocidade e precisão.
+
+* **Média de Velocidade Atual:** 47 WPM (Palavras por Minuto)
+* **Média de Precisão:** 97.1%
+* **Foco do Treino:** Digitação cega (Touch Typing) para ganho de produtividade no desenvolvimento de software.
 
 
