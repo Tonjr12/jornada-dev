@@ -3,6 +3,8 @@ meta_salva = ""
 ano_salvo = 0
 meses_salvo = 0
 simulacao_feita = False #(flag-A bandeira)
+#___Agora usamos o mundo 3 para o histórico___
+historico_metas = [] #Lista vazia que guardara os dicionarios
 
 while True:
     print('============= SISTEMA DE METAS v1.0 =============')
@@ -27,7 +29,14 @@ while True:
         ano_salvo = int(anos) # garantindo que não apareca o ".0"
         meses_salvo = int(meses_restantes)
         simulacao_feita = True
-
+        #criando o dicionário de meta atual (Padrão Mundo 3!)
+        meta_atual = {
+            'nome': meta,
+            'anos': int(anos),
+            'meses': int(meses_restantes)
+        }
+        #Histórico de metas
+        historico_metas.append(meta_atual)
         print('-='*30)
         print(f'Para atingir a Meta :{meta}')
         print(f'Você precisara de {anos} ano(s) e {meses_restantes} mês(es)! ')
@@ -35,13 +44,14 @@ while True:
     elif opcao == '2':
         print('Veja o Resumo do Plano')
         print('-='*30)
-        # se a simulacao_feita = True mostre os dados salvos com f-string
-        if simulacao_feita == True:
-            print(f'Sua ultima meta simulada:{meta_salva}')
-            print(f'Tempo estimado {ano_salvo} ano(s) e {meses_salvo} mês(es).')
-        # SENAO(O usuario foi direto para opção 2 sem simular antes)
+        # Se o tamanho do len da lista for 0, significa que a lista está vazia
+        if len(historico_metas) == 0:
+            print('\033[31mNenhuma simulação encontrada!\033[m ')
+        # SENAO , varremos a lista e mostramos o dicionario
         else:
-            print('\033[31mNenhuma simulação encontrada! Por favor faça uma simulação na opção 1 primeiro.\033[m')
+            print ('--- SUAS METAS CADASTRADAS ---')
+            for meta in historico_metas:
+                print(f' Meta: {meta["nome"]} - Tempo: {meta["anos"]} ano(s) e {meta["meses"]} meses')
 
     elif opcao == '3':
         print('Saindo do Sistema')
