@@ -9,6 +9,27 @@ def exibir_menu():
     print('3 - Sair do Sistema')
     print('=================================================')
 
+def simular_meta():
+    """Funçao responsável por calcular dados, calcular o tempo e salvar no historico"""
+    print('\n=== VAMOS CALCULAR A META FINANCEIRA ===')
+    meta = input('Digite o Nome da Meta Financeira: ')
+    valor = float(input('Digite o valor da Meta Financeira: '))
+    aporte_mensal = float(input('Digite o valor do aporte mensal: '))
+    #Execultando os cálculos do mundo 2!
+    total_meses = int(valor // aporte_mensal)
+    anos = int(total_meses // 12)
+    meses_restantes = total_meses % 12
+
+    #Montar um dicionário do Mundo 3!
+    meta_atual = {
+        'nome': meta,
+        'anos': int(anos),
+        'meses':int(meses_restantes),
+    }
+
+    #Salvar na lista global histórica
+    historico_metas.append(meta_atual)
+
 
 #=========================================================
 # 2.HISTÓRICO E VARIÁVEIS GLOBAL
@@ -25,25 +46,7 @@ while True:
     opcao = input('Digite a opção desejada: ')
 
     if opcao == '1':
-        print('Vamos simular a meta financeira')
-        #(Por enquanto mantendo o código da opção 1, aqui)
-        meta = input('Digite o Nome da Meta Financeira: ')
-        valor = float(input('Digite o valor da Meta Financeira: '))
-        aporte_mensal = float(input('Digite o valor do Aporte mensal: '))
-        total_meses = int(valor // aporte_mensal)
-        anos = int(total_meses // 12)
-        meses_restantes = total_meses % 12
-
-        meta_atual = {
-            'nome': meta,
-            'anos': int(anos),
-            'meses':int(meses_restantes),
-        }
-        historico_metas.append(meta_atual)
-        print('-='*30)
-        print(f'Para atingir a Meta {meta}')
-        print(f'Você precisara de {anos} anos e {meses_restantes} meses')
-
+       simular_meta()
 
     elif opcao == '2':
         print('Veja o Resumo do Plano')
@@ -59,3 +62,17 @@ while True:
         break
     else:
         print('OPÇÃO INVALIDA!')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
